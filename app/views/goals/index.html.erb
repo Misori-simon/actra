@@ -1,0 +1,8 @@
+<h1>Goals#index</h1>
+<% @goals.each do |goal| %>
+  <p>
+    <%= goal.name %>
+    <%= goal.amount %>
+    <%= (goal.created_at) %>
+  </p>
+<% end %>
