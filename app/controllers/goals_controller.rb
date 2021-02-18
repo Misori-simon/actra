@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal = current_user.goals.build
-    @groups =  current_user.groups
+    @groups = current_user.groups
   end
 
   def create
