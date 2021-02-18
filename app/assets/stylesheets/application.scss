@@ -1,0 +1,183 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body * {
+  font-size: 1.6rem;
+}
+
+// helper classes
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn-pri {
+  @extend .btn;
+
+  background-color: $pri-color;
+}
+
+.btn-sec {
+  @extend .btn;
+
+  background-color: $sec-color;
+}
+
+.btn-ter {
+  @extend .btn;
+
+  background-color: $ter-color;
+}
+
+.form-btn {
+  width: 90%;
+  display: block;
+  margin: 1rem auto;
+  border: 1px solid #fff;
+  padding: 1.2rem 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.form-btn-wrapper {
+  width: 100%;
+  padding: 0.8rem 0;
+}
+
+.bg-sec {
+  background-color: $sec-color;
+}
+
+//navigation
+
+.main-nav {
+  @extend .flex-between;
+
+  align-items: center;
+  background-color: $pri-color;
+  color: $ter-color;
+  padding: 1rem 2rem;
+
+  .nav-sub-conatiner {
+    a {
+      color: #fff;
+      display: inline-block;
+      margin: 0 0.5rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  .left-nav {
+    @extend .nav-sub-conatiner;
+
+    a {
+      @extend .btn;
+
+      border: 2px solid $sec-color;
+      border-top: none;
+      box-shadow: 0 6px 6px -5px $sec-color;
+      font-weight: bold;
+    }
+  }
+
+  .right-nav {
+    @extend .nav-sub-conatiner;
+  }
+}
+
+// for forms
+
+form {
+  background-color: #eee;
+  max-width: 50rem;
+  //for large screen
+  padding: 2rem 0 0;
+  margin: auto;
+
+  .field {
+    margin: 2rem auto;
+    max-width: 40rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .field-group-label {
+    margin: 0 auto;
+    display: block;
+    max-width: 40rem;
+    color: $ter-color;
+    font-weight: bold;
+    padding-left: 0.5rem;
+  }
+
+  .field-group {
+    margin: 0.5rem auto 2rem;
+    max-width: 40rem;
+    color: $ter-color;
+    border-radius: 5px;
+    padding: 1rem;
+    border-left: 1px solid $ter-color;
+    border-right: 1px solid $ter-color;
+  }
+
+  //for form errors
+  #error_explanation {
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 1rem;
+    background-color: rgb(253, 209, 209);
+
+    ul li {
+      list-style: none;
+      margin: 0.5rem 0.5rem;
+      font-size: 1.4rem;
+      color: rgb(240, 64, 64);
+    }
+  }
+}
+
+.form-title {
+  max-width: 50rem;
+  //for large screen
+  padding: 2rem 0 0;
+  margin: auto;
+  color: $ter-color;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  text-align: center;
+}
