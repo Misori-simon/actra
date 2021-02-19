@@ -39,8 +39,6 @@ class GoalsController < ApplicationController
     params.require(:goal).permit(:id, :name, :amount)
   end
 
-
-
   def create_scoring_from_groups(arr)
     arr.each do |g|
       group = Group.find(g.to_i)
