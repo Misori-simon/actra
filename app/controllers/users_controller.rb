@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @groups = current_user.groups
+    @total_goals = current_user.goals.sum_goals
   end
 
   def edit

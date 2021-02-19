@@ -1,4 +1,18 @@
 <div>
-  <img src="https://via.placeholder.com/150" alt="prifile image" />
-  <%= @group.name %>
+<div class="profile-wrapper group-wrapper">
+  <p class="profile-image-wrapper">
+    <img src="https://via.placeholder.com/150" alt="prifile image" class="profile-image" />
+  </p>
+  <div class="profile-details">
+    <p class="group-name"> <%= @group.name %> </p>
+    <p class="group-goals">
+      <b class="group-goals-number">
+        <%= @total_goals%>
+      </b>
+      <%= pluralize(@total_goals, "goal")%>
+    </p>
+    <%= link_to "Edit", edit_group_path(@group), class: "edit-group" %>
+  </div>
 </div>
+<h1 class="form-title"> Goals </p>
+<%= render "goals/goals" %>

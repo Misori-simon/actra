@@ -1,12 +1,11 @@
-<h1>Log In</h1>
+<h1 class="form-title">Login To Continue</h1>
 <%= form_with url: session_path do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: :name %>
   </div>
 
 
-  <div class="actions">
-    <%= f.submit 'Log In' %>
+  <div class="form-btn-wrapper bg-sec">
+    <%= f.submit 'Log In', class: 'form-btn bg-sec' %>
   </div>
 <% end %>

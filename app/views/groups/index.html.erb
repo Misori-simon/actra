@@ -1,7 +1,2 @@
-<% @groups.each do |group| %>
-  <p> <%= group.name%> </p>
-  <p> <%= group.user.name%> </p>
-  <%= link_to "edit", edit_group_path(group) %>
-  <%= link_to "show", group_path(group) %>
-  <%= link_to "Delete", group_path(group), method: :delete %>
-<% end %>
+<h1 class="form-title">Goal Categories</h1>
+<%= render "groups" %>

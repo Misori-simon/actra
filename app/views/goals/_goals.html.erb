@@ -1,0 +1,14 @@
+<% @goals.each do |goal| %>
+  <div class="goal-items">
+    <div>
+      <img src="https://via.placeholder.com/60">
+    </div>
+    <div class="goal-item-info">
+      <p class="goal-item-info-top">
+        <span class="goal-name"><span class="vs">VS</span><%= goal.name.capitalize %></span>
+        <span class="goal-amount">Scored: <%= goal.amount %></span>
+      </p>
+      <small class="goal-date"><%= goal.created_at %></small>
+    </div>
+  </div>
+<% end %>
