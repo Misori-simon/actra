@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(version: 2021_02_18_083913) do
   end
 
   create_table "scorings", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "goal_id"
+    t.bigint "group_id"
+    t.bigint "goal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_scorings_on_goal_id"
+    t.index ["group_id"], name: "index_scorings_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,4 +48,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_083913) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "scorings", "goals"
+  add_foreign_key "scorings", "groups"
 end

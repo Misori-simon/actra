@@ -1,8 +1,8 @@
 class CreateScorings < ActiveRecord::Migration[6.1]
   def change
     create_table :scorings do |t|
-      t.integer :group_id
-      t.integer :goal_id
+      t.references :group, foreign_key: true
+      t.references :goal, foreign_key: true
 
       t.timestamps
     end
