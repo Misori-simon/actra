@@ -4,9 +4,5 @@ class Group < ApplicationRecord
   belongs_to :user
   has_many :scorings, dependent: :destroy
   has_many :goals, through: :scorings
-
-  def create_scoring
-    scorings.new(goal: @goal)
-    # render :edit unless scoring.save
-  end
+  has_one_attached :image
 end
