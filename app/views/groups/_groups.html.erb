@@ -1,7 +1,7 @@
 <% @groups.each do |group| %>
   <a href="<%= group_path(group) %>" class="goal-items">
-    <div>
-      <img src="https://via.placeholder.com/60">
+    <% image = group.image.attached? ? url_for(group.image): 'https://via.placeholder.com/60'%>
+    <div class="thumbnail_image" style="background-image:url(&quot;<%= image %>&quot;) ">
     </div>
     <div class="goal-item-info">
       <p class="goal-item-info-top">

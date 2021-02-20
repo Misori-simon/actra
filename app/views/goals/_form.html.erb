@@ -19,15 +19,22 @@
     <%= f.number_field :amount, placeholder: "Number of goals" %>
   </div>
 
-  <%= f.label "Categorise your goal", class: "field-group-label"%>
-  <div class="field-group">
+  <%= f.label "Choose goal style", class: "field-group-label"%>
+  <div class="field">
+    <select name="group_id" id="group_id">
+      <% @groups.each do |group| %>
+        <option value="<%= group.id%>"><%= group.name.capitalize %></option>
+      <% end %>
+    </select>
+  </div>
 
-    <% @groups.each do |group| %>
-      <div class="check-item">
-        <input type="checkbox" name="group_ids[]" value="<%= group.id %>" />
-        <%= group.name.capitalize %>
-        </div>
-    <% end %>
+  <%= f.label "Choose Competition", class: "field-group-label"%>
+  <div class="field">
+    <select name="competition_id" id="competition_id">
+      <% @groups.each do |group| %>
+        <option value="<%= group.id%>"><%= group.name.capitalize %></option>
+      <% end %>
+    </select>
   </div>
 
   <div class="form-btn-wrapper bg-sec">

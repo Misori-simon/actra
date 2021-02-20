@@ -55,6 +55,7 @@ body * {
 .btn-sec {
   @extend .btn;
 
+  color: #fff;
   background-color: $sec-color;
 }
 
@@ -141,7 +142,6 @@ body * {
 
 form {
   background-color: #eee;
-  //for large screen
   padding: 2rem 0 0;
   margin: auto;
 
@@ -151,13 +151,15 @@ form {
   }
 
   input[type="text"],
-  input[type="number"] {
+  input[type="number"],
+  select {
     width: 100%;
     padding: 1rem;
+    background-color: #fff;
   }
 
   .field-group-label {
-    margin: 0 auto;
+    margin: 0 auto -1rem;
     display: block;
     max-width: 40rem;
     color: $ter-color;
@@ -262,14 +264,10 @@ form {
   padding: 1rem;
 
   .profile-image-wrapper {
-    max-width: 10rem;
-    max-height: 10rem;
-  }
-
-  .profile-image {
-    width: 100%;
-    object-fit: contain;
+    background-size: cover;
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
   }
 
   .profile-details {
@@ -324,4 +322,16 @@ form {
 
 .group-wrapper {
   background-color: $ter-color;
+}
+
+.thumbnail_image {
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.goal-menu {
+  max-width: 30rem;
+  margin: 2rem auto;
 }
