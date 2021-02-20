@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :groups
+  resources :competitions
   resources :goals
   resources :users, only: %i[index show new create edit update]
   resource :session, only: %i[new create destroy]

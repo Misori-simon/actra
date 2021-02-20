@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.build(group_params)
     if @group.save
-      redirect_to @group, notice: 'Group created'
+      redirect_to @group, notice: 'Goal Style Added'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Group created'
+      redirect_to @group, notice: 'Goal Style Updated'
     else
       render :edit
     end

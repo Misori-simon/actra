@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_153204) do
+ActiveRecord::Schema.define(version: 2021_02_20_053510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 2021_02_19_153204) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "competitions", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "goalings", force: :cascade do |t|
+    t.bigint "competition_id"
+    t.bigint "goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["competition_id"], name: "index_goalings_on_competition_id"
+    t.index ["goal_id"], name: "index_goalings_on_goal_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -76,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_02_19_153204) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "goalings", "competitions"
+  add_foreign_key "goalings", "goals"
   add_foreign_key "scorings", "goals"
   add_foreign_key "scorings", "groups"
 end

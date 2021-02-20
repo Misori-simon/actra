@@ -7,26 +7,19 @@ class GoalsController < ApplicationController
   def new
     @goal = current_user.goals.build
     @groups = current_user.groups
+    @competitions = current_user.competitions
   end
 
   def create
     @goal = current_user.goals.build(goal_params)
     if @goal.save
-      group = Group.find(params[:group_id])
-      scoring = group.scorings.new({ goal: @goal })
-      scoring.save ? redirect_to(goals_path) : render(edit_goal(@goal))
+      if create_scoring && create_goaling
+        redirect_to goals_path, notice: 'Goal saved'
+      else
+        redirect_to goals_path, notice: 'Failed to associate goal with style/competition'
+      end
     else
       render :new
-    end
-  end
-
-  def edit; end
-
-  def update
-    if @goal.update(goal_params)
-      redirect_to goals_path, notice: 'goal(s) was recorded'
-    else
-      render :edit
     end
   end
 
@@ -38,5 +31,17 @@ class GoalsController < ApplicationController
 
   def goal_params
     params.require(:goal).permit(:id, :name, :amount)
+  end
+
+  def create_scoring
+    group = Group.find(params[:group_id])
+    scoring = group.scorings.new({ goal: @goal })
+    scoring.save
+  end
+
+  def create_goaling
+    competition = Competition.find(params[:competition_id])
+    goaling = competition.goalings.new({ goal: @goal })
+    goaling.save
   end
 end
