@@ -12,14 +12,9 @@ class GoalsController < ApplicationController
   def create
     @goal = current_user.goals.build(goal_params)
     if @goal.save
-      group_ids = params[:group_ids]
-      group_ids.map!(&:to_i)
-      group_ids.each do |id|
-        group = Group.find(id)
-        scoring = group.scorings.new({goal: @goal})
-        render edit_goal(@goal) unless scoring.save
-      end
-      redirect_to goals_path
+      group = Group.find(params[:group_id])
+      scoring = group.scorings.new({ goal: @goal })
+      scoring.save ? redirect_to(goals_path) : render(edit_goal(@goal))
     else
       render :new
     end
@@ -43,9 +38,5 @@ class GoalsController < ApplicationController
 
   def goal_params
     params.require(:goal).permit(:id, :name, :amount)
-  end
-
-  def scoring_params
-    params.require(:group_ids)
   end
 end
