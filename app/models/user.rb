@@ -10,14 +10,13 @@ class User < ApplicationRecord
   before_save :name_exists?
 
   def downcase_fields
-    self.name.downcase!
+    name.downcase!
   end
 
   def name_exists?
-    return if User.where(name: self.name).empty?
+    return if User.where(name: name).empty?
 
     errors.add(:base, 'Name is taken')
     throw(:abort)
   end
-
 end

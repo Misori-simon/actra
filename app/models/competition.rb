@@ -8,11 +8,11 @@ class Competition < ApplicationRecord
   before_save :name_exists?
 
   def downcase_fields
-    self.name.downcase!
+    name.downcase!
   end
 
   def name_exists?
-    return if Competition.where(name: self.name).empty?
+    return if Competition.where(name: name).empty?
 
     errors.add(:base, 'Competition already exists')
     throw(:abort)

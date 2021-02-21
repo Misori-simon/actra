@@ -10,7 +10,7 @@ class Goal < ApplicationRecord
   scope :sum_goals, -> { sum(:amount) }
 
   def parent_group
-    group_id = Scoring.where(goal_id: self.id).first[:group_id]
+    group_id = Scoring.where(goal_id: id).first[:group_id]
     Group.find(group_id)
   end
 

@@ -10,11 +10,11 @@ class Group < ApplicationRecord
   before_save :name_exists?
 
   def downcase_fields
-    self.name.downcase!
+    name.downcase!
   end
 
   def name_exists?
-    return if Group.where(name: self.name).empty?
+    return if Group.where(name: name).empty?
 
     errors.add(:base, 'Style already exists')
     throw(:abort)
