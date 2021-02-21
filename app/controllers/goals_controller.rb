@@ -1,32 +1,31 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: %i[show edit update]
+  before_action :require_login, only: %i[index new create]
   def index
     @goals = current_user.goals
   end
 
   def new
-    @goal = current_user.goals.build
-    @groups = current_user.groups
+    if group_absent?
+      redirect_to new_group_path, notice: 'Add a Goal Style'
+    elsif competition_absent?
+      redirect_to new_competition_path, notice: 'Add a Competition '
+    else
+      @goal = current_user.goals.build
+      @groups = current_user.groups
+      @competitions = current_user.competitions
+    end
   end
 
   def create
     @goal = current_user.goals.build(goal_params)
     if @goal.save
-      group = Group.find(params[:group_id])
-      scoring = group.scorings.new({ goal: @goal })
-      scoring.save ? redirect_to(goals_path) : render(edit_goal(@goal))
+      if create_scoring && create_goaling
+        redirect_to goals_path, notice: 'Goal saved'
+      else
+        redirect_to goals_path, notice: 'Failed to associate goal with style/competition'
+      end
     else
       render :new
-    end
-  end
-
-  def edit; end
-
-  def update
-    if @goal.update(goal_params)
-      redirect_to goals_path, notice: 'goal(s) was recorded'
-    else
-      render :edit
     end
   end
 
@@ -38,5 +37,21 @@ class GoalsController < ApplicationController
 
   def goal_params
     params.require(:goal).permit(:id, :name, :amount)
+  end
+
+  def create_scoring
+    group = Group.find(params[:group_id])
+    scoring = group.scorings.new({ goal: @goal })
+    scoring.save
+  end
+
+  def create_goaling
+    competition = Competition.find(params[:competition_id])
+    goaling = competition.goalings.new({ goal: @goal })
+    goaling.save
+  end
+
+  def require_login
+    redirect_to new_session_path unless session[:user_id]
   end
 end

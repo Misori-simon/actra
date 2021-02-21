@@ -1,3 +1,4 @@
 <h1 class="form-title">Goals Scored</h1>
 <%= render "menu" %>
+<%= 'No goals yet, add a new goal' if @goals.empty?%>
 <%= render "goals" %>

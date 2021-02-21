@@ -1,3 +1,4 @@
 <h1 class="form-title">Goals Grouped By Style</h1>
 <%= render "goals/menu" %>
+<%= 'No styles yet, add a new goal style' if @groups.empty?%>
 <%= render "groups" %>

@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :name, placeholder: :name %>
+    <%= f.text_field :name, placeholder: :name, required: true %>
   </div>
 
+  <label for="image" class="field-group-label"> Choose Image</label>
   <div class="field">
-    <label for="image"> Add profile Image</label>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, required: true %>
   </div>
 
   <div class="form-btn-wrapper bg-sec">

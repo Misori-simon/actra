@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: 'Thank you for signing up!'
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Thank you for signing up!'
     else
       render :new
     end
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @groups = current_user.groups
+    @competitions = current_user.competitions
     @total_goals = current_user.goals.sum_goals
   end
 

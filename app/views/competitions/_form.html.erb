@@ -1,0 +1,27 @@
+
+<%= form_with model: @competition do |f| %>
+  <% if @competition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@competition.errors.count, 'error') %> prohibited this competition from signing up:</h2>
+
+      <ul>
+      <% @competition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: :name %>
+  </div>
+
+  <label for="image" class="field-group-label"> Add Image</label>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-btn-wrapper bg-sec">
+    <%= f.submit "#{locals[:submit_btn_text]}", class: 'form-btn bg-sec' %>
+  </div>
+<% end %>

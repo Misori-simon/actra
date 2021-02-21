@@ -1,15 +1,14 @@
 <nav class="main-nav">
   <div class="left-nav">
-    <%= link_to "HOME", current_user %>
-    <%= link_to "GROUPS", groups_path %>
-    <%= link_to "ADD GROUP", new_group_path %>
+    <%= link_to image_tag("actra-wh-01.png", width: 80), root_path %>
+    <%= link_to "NEW COMPETITION", new_competition_path %>
+    <%= link_to "NEW GOAL STYLE", new_group_path %>
     <%= link_to "GOALS", goals_path %>
     <%= link_to "ADD GOAL", new_goal_path %>
-
   </div>
   <div class="right-nav">
     <% if logged_in? %>
-    <%= link_to "#{current_user.name}", current_user  %>
+    <%= link_to "#{current_user.name.capitalize}", current_user  %>
     <%= link_to 'Logout', session_path, method: :delete, class: "btn-ter" %>
   <% else %>
     <%= link_to 'Sign Up', new_user_path, class: "btn-ter" %>

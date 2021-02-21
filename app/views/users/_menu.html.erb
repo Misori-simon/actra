@@ -1,0 +1,13 @@
+<div class="profile-wrapper">
+  <% image = @user.image.attached? ? url_for(@user.image): 'https://via.placeholder.com/150'%>
+  <p class="profile-image-wrapper" style="background-image:url(&quot;<%= image %>&quot;) ">
+  </p>
+  <div class="profile-details">
+    <p class="profile-name"> <%= @user.name %> </p>
+    <p class="profile-goals">Goals Scored: <b class="profile-goals-number"><%= @total_goals%></b></p>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile" %>
+  </div>
+</div>
+<div class="goal-menu flex-center">
+<h1 class="btn-sec"> Goal Stats</h1>
+</div>

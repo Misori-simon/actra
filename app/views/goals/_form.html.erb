@@ -31,8 +31,8 @@
   <%= f.label "Choose Competition", class: "field-group-label"%>
   <div class="field">
     <select name="competition_id" id="competition_id">
-      <% @groups.each do |group| %>
-        <option value="<%= group.id%>"><%= group.name.capitalize %></option>
+      <% @competitions.each do |competition| %>
+        <option value="<%= competition.id%>"><%= competition.name.capitalize %></option>
       <% end %>
     </select>
   </div>

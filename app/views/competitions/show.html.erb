@@ -1,13 +1,13 @@
 <div class="profile-wrapper group-wrapper">
-    <% image = @group.image.attached? ? url_for(@group.image): 'https://via.placeholder.com/150'%>
+    <% image = @competition.image.attached? ? url_for(@competition.image): 'https://via.placeholder.com/150'%>
   <p class="profile-image-wrapper" style="background-image:url(&quot;<%= image %>&quot;) ">
   </p>
   <div class="profile-details">
-    <p class="group-name"> <%= @group.name %> </p>
+    <p class="group-name"> <%= @competition.name %> </p>
     <p class="group-goals">
       <%= pluralize(@total_goals, "goal")%>
     </p>
-    <%= link_to "Edit", edit_group_path(@group), class: "edit-group" %>
+    <%= link_to "Edit", edit_group_path(@competition), class: "edit-group" %>
   </div>
 </div>
 <h1 class="form-title"> Goals </p>
