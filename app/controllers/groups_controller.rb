@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :require_login
+  before_action :set_group, only: %i[show edit update]
   def index
     @groups = current_user.groups
   end
@@ -19,6 +20,7 @@ class GroupsController < ApplicationController
 
   def show
     @goals = @group.goals
+    @total_goals = @group.goals.sum_goals
   end
 
   def edit; end
@@ -44,5 +46,9 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:id, :name, :image)
+  end
+
+  def require_login
+    redirect_to new_session_path unless session[:user_id]
   end
 end

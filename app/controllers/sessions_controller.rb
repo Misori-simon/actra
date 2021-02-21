@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user
       session[:user_id] = user.id
-      redirect_to users_path, notice: 'Logged in!'
+      redirect_to root_path, notice: 'Logged in!'
     else
       p 'failed'
       flash.now.alert = 'User not found'

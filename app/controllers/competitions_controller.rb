@@ -1,5 +1,6 @@
 class CompetitionsController < ApplicationController
-  before_action :set_competition, only: %i[show edit update destroy]
+  before_action :require_login
+  before_action :set_competition, only: %i[show edit update]
   def index
     @competitions = current_user.competitions
   end
@@ -19,6 +20,7 @@ class CompetitionsController < ApplicationController
 
   def show
     @goals = @competition.goals
+    @total_goals = @competition.goals.sum_goals
   end
 
   def edit; end
@@ -44,5 +46,9 @@ class CompetitionsController < ApplicationController
 
   def competition_params
     params.require(:competition).permit(:id, :name, :image)
+  end
+
+  def require_login
+    redirect_to new_session_path unless session[:user_id]
   end
 end

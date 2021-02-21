@@ -5,9 +5,6 @@
   <div class="profile-details">
     <p class="group-name"> <%= @group.name %> </p>
     <p class="group-goals">
-      <b class="group-goals-number">
-        <%= @total_goals%>
-      </b>
       <%= pluralize(@total_goals, "goal")%>
     </p>
     <%= link_to "Edit", edit_group_path(@group), class: "edit-group" %>

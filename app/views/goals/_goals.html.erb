@@ -1,7 +1,9 @@
 <% @goals.each do |goal| %>
   <div class="goal-items">
-    <div>
-      <img src="https://via.placeholder.com/60">
+    <% group = goal.parent_group %>
+    <% image = group.image.attached? ? url_for(group.image): 'https://via.placeholder.com/60'%>
+    <% p group.image.attached? %>
+    <div class="thumbnail_image" style="background-image:url(&quot;<%= image %>&quot;) ">
     </div>
     <div class="goal-item-info">
       <p class="goal-item-info-top">

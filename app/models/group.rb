@@ -5,4 +5,18 @@ class Group < ApplicationRecord
   has_many :scorings, dependent: :destroy
   has_many :goals, through: :scorings
   has_one_attached :image
+
+  before_save :downcase_fields
+  before_save :name_exists?
+
+  def downcase_fields
+    self.name.downcase!
+  end
+
+  def name_exists?
+    return if Group.where(name: self.name).empty?
+
+    errors.add(:base, 'Style already exists')
+    throw(:abort)
+  end
 end

@@ -1,13 +1,19 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: %i[show edit update]
+  before_action :require_login, only: %i[index new create]
   def index
     @goals = current_user.goals
   end
 
   def new
-    @goal = current_user.goals.build
-    @groups = current_user.groups
-    @competitions = current_user.competitions
+    if group_absent?
+      redirect_to new_group_path, notice: 'Add a Goal Style'
+    elsif competition_absent?
+      redirect_to new_competition_path, notice: 'Add a Competition '
+    else
+      @goal = current_user.goals.build
+      @groups = current_user.groups
+      @competitions = current_user.competitions
+    end
   end
 
   def create
@@ -43,5 +49,9 @@ class GoalsController < ApplicationController
     competition = Competition.find(params[:competition_id])
     goaling = competition.goalings.new({ goal: @goal })
     goaling.save
+  end
+
+  def require_login
+    redirect_to new_session_path unless session[:user_id]
   end
 end

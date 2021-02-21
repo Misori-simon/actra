@@ -1,12 +1,7 @@
-<div class="profile-wrapper">
-  <% image = @user.image.attached? ? url_for(@user.image): 'https://via.placeholder.com/150'%>
-  <p class="profile-image-wrapper" style="background-image:url(&quot;<%= image %>&quot;) ">
-  </p>
-  <div class="profile-details">
-    <p class="profile-name"> <%= @user.name %> </p>
-    <p class="profile-goals">Goals Scored: <b class="profile-goals-number"><%= @total_goals%></b></p>
-    <%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile" %>
-  </div>
-</div>
-<h1 class="form-title"> Goal Stats</p>
+<%= render "menu" %>
+<h1 class="form-title"> By Competitions</h2>
+<%= render "competitions/competitions" %>
+<h1 class="form-title"> By Style</h2>
 <%= render "groups/groups" %>
+
+
