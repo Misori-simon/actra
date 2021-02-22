@@ -54,4 +54,12 @@ class GoalsController < ApplicationController
   def require_login
     redirect_to new_session_path unless session[:user_id]
   end
+
+  def group_absent?
+    Group.all.empty?
+  end
+
+  def competition_absent?
+    Competition.all.empty?
+  end
 end

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   before_save :downcase_fields
-  before_save :name_exists?
+  before_create :name_exists?
 
   def downcase_fields
     name.downcase!

@@ -336,3 +336,21 @@ form {
   max-width: 30rem;
   margin: 2rem auto;
 }
+
+.notice,
+.alert {
+  max-width: 40rem;
+  margin: 0.5rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.notice {
+  color: $sec-color;
+  border: 1px solid $sec-color;
+}
+
+.alert {
+  color: red;
+  border: 1px solid red;
+}
