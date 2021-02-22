@@ -1,0 +1,15 @@
+<div id="groups">
+  <% @groups.each do |group| %>
+  <a href="<%= group_path(group) %>" class="goal-items">
+    <% image = group.image.attached? ? url_for(group.image): 'https://via.placeholder.com/60'%>
+    <div class="thumbnail_image" style="background-image:url(&quot;<%= image %>&quot;) ">
+    </div>
+    <div class="goal-item-info">
+      <p class="goal-item-info-top">
+        <span class="goal-name"><%= group.name.capitalize %></span>
+        <span class="group-goals">Scored: <%= group.goals.sum_goals %></span>
+      </p>
+    </div>
+  </a>
+<% end %>
+</div>

@@ -1,0 +1,43 @@
+<%= form_with model: @goal do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, 'error') %> prohibited this goal from signing up:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Opponent" %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :amount, placeholder: "Number of goals" %>
+  </div>
+
+  <%= f.label "Choose goal style", class: "field-group-label"%>
+  <div class="field">
+    <select name="group_id" id="group_id">
+      <% @groups.each do |group| %>
+        <option value="<%= group.id%>"><%= group.name.capitalize %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <%= f.label "Choose Competition", class: "field-group-label"%>
+  <div class="field">
+    <select name="competition_id" id="competition_id">
+      <% @competitions.each do |competition| %>
+        <option value="<%= competition.id%>"><%= competition.name.capitalize %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-btn-wrapper bg-sec">
+    <%= f.submit "#{locals[:submit_btn_text]}", class: "form-btn bg-sec" %>
+  </div>
+<% end %>

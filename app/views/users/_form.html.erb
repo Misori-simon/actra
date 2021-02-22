@@ -1,0 +1,26 @@
+<%= form_with(model: @user, local: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from signing up:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: :name, required: true %>
+  </div>
+
+  <label for="image" class="field-group-label"> Profile Image</label>
+  <div class="field">
+    <%= f.file_field :image, required: true %>
+  </div>
+
+  <div class="form-btn-wrapper bg-sec">
+    <%= f.submit "#{locals[:submit_btn_text]}", class: 'form-btn bg-sec' %>
+  </div>
+<% end %>
