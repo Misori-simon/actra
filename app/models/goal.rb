@@ -1,5 +1,6 @@
 class Goal < ApplicationRecord
   validates :name, presence: true
+  validates :amount, presence: true
 
   belongs_to :user
   has_many :scorings, dependent: :destroy
@@ -12,13 +13,5 @@ class Goal < ApplicationRecord
   def parent_group
     group_id = Scoring.where(goal_id: id).first[:group_id]
     Group.find(group_id)
-  end
-
-  def group_absent?
-    Group.all.empty?
-  end
-
-  def competition_absent?
-    Competition.all.empty?
   end
 end
