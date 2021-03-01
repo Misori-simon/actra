@@ -9,6 +9,12 @@ class Competition < ApplicationRecord
   before_save :downcase_fields
   before_create :name_exists?
 
+  scope :competitions_goals_count, lambda {
+    joins(:goals).select(
+      'competitions.*, SUM(goals.amount) AS goals_count'
+    ).group('competitions.id')
+  }
+
   def downcase_fields
     name.downcase!
   end

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?, :no_competiton_message, :no_group_message, :no_goal_message, :group_absent?, :competition_absent?
+  helper_method :current_user, :logged_in?, :no_competiton_message, :no_group_message,
+                :no_goal_message, :group_absent?, :competition_absent?
 
   private
 
