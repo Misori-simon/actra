@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @groups = current_user.groups
-    @competitions = current_user.competitions
+    @groups = current_user.groups.includes(image_attachment: :blob)
+    @competitions = current_user.competitions.includes(image_attachment: :blob)
     @total_goals = current_user.goals.sum_goals
   end
 
