@@ -22,7 +22,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 [Video presentation](https://www.loom.com/share/f8d17086752c4fa996a5a480afa0b698)
 
 ### Live DEMO
-[Vist](https://mighty-forest-33348.herokuapp.com/)
+[Vist](https://actra.herokuapp.com/)
 
 ## Getting Started
 

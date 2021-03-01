@@ -2,7 +2,7 @@ class CompetitionsController < ApplicationController
   before_action :require_login
   before_action :set_competition, only: %i[show edit update]
   def index
-    @competitions = current_user.competitions.includes(image_attachment: :blob)
+    @competitions = current_user.competitions.competitions_goals_count.includes(image_attachment: :blob)
   end
 
   def new

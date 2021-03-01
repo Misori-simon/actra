@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :require_login
   before_action :set_group, only: %i[show edit update]
   def index
-    @groups = current_user.groups.includes(image_attachment: :blob)
+    @groups = current_user.groups.groups_goals_count.includes(image_attachment: :blob)
   end
 
   def new
