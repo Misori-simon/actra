@@ -11,6 +11,28 @@
 The objective of this project is build a rails application making use of __groupings__ and to host it on Heroku.
 The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 
+## Screenshots
+- User Profile
+![screenshot](app/assets/images/user_profile.png)
+
+- User Goals
+![screenshot](app/assets/images/goals.png)
+
+- New goal
+![screenshot](app/assets/images/new_goal.png)
+
+- New goal style
+![screenshot](app/assets/images/new_group.png.png)
+
+- New competiton
+![screenshot](app/assets/images/new_competition.png)
+
+- Login
+![screenshot](app/assets/images/login.png)
+
+- Sign up
+![screenshot](app/assets/images/signup.png)
+
 ## Built With
 
 - Ruby
@@ -71,27 +93,6 @@ rspec --format documentation
 ```
 -
 
-## Screenshots
-- User Profile
-![screenshot](app/assets/images/user_profile.png)
-
-- User Goals
-![screenshot](app/assets/images/goals.png)
-
-- New goal
-![screenshot](app/assets/images/new_goal.png)
-
-- New goal style
-![screenshot](app/assets/images/new_group.png.png)
-
-- New competiton
-![screenshot](app/assets/images/new_competition.png)
-
-- Login
-![screenshot](app/assets/images/login.png)
-
-- Sign up
-![screenshot](app/assets/images/signup.png)
 
 ## Authors
 
