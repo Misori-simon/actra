@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @goals = @group.goals
+    @goals = @group.goals.latest
     @total_goals = @group.goals.sum_goals
   end
 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'goals#index'
+  root 'users#show'
+  get 'users/my_competitions'
+  get 'users/my_groups'
   resources :groups, except: %i[destroy]
   resources :competitions, except: %i[destroy]
   resources :goals, only: %i[index new create]

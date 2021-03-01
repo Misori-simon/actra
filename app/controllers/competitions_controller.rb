@@ -19,7 +19,7 @@ class CompetitionsController < ApplicationController
   end
 
   def show
-    @goals = @competition.goals
+    @goals = @competition.goals.latest
     @total_goals = @competition.goals.sum_goals
   end
 
