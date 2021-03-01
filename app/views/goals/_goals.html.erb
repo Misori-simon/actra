@@ -10,7 +10,7 @@
         <span class="goal-name"><span class="vs">VS</span><%= goal.name.capitalize %></span>
         <span class="goal-amount">Scored: <%= goal.amount %></span>
       </p>
-      <small class="goal-date"><%= goal.created_at %></small>
+      <small class="goal-date"><%= read_date(goal.created_at) %></small>
     </div>
   </div>
 <% end %>

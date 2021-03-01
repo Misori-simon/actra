@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :no_competiton_message, :no_group_message,
-                :no_goal_message, :group_absent?, :competition_absent?
+                :no_goal_message, :group_absent?, :competition_absent?,
+                :read_date, :read_time
 
   private
 
@@ -30,5 +31,9 @@ class ApplicationController < ActionController::Base
 
   def competition_absent?
     current_user.competitions.all.empty?
+  end
+
+  def read_date(date)
+    date.strftime('%I:%M%p, %m/%d/%Y')
   end
 end
