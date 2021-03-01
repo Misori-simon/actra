@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :no_competiton_message, :no_group_message, :no_goal_message, :group_absent?, :competition_absent?
 
   private
 
@@ -21,5 +21,13 @@ class ApplicationController < ActionController::Base
 
   def no_goal_message
     'No goals yet, add a goal' if @goals.empty?
+  end
+
+  def group_absent?
+    current_user.groups.all.empty?
+  end
+
+  def competition_absent?
+    current_user.competitions.all.empty?
   end
 end
