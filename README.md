@@ -22,7 +22,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 [Video presentation](https://www.loom.com/share/f8d17086752c4fa996a5a480afa0b698)
 
 ### Live DEMO
-[Vist](https://actra.herokuapp.com/)
+[Vist](https://mighty-forest-33348.herokuapp.com/)
 
 ## Getting Started
 
@@ -43,18 +43,33 @@ cd actra
 ```
 bundle install
 ```
+
+```
+yarn install
+```
+- create a database
+```
+rails db:create
+```
+- Run all migrations
+```
+rails db:migrate
+```
 - To start the server
 
 ```
 rails server
 ```
-
-```
-rails db:migrate
-```
 - In your browser, visit ```localhost:3000```
 - You can create an account with the signup *profile image is required*
-- To start recording your goals, you need to have atleast one goal style and one competion added *images also required*
+- To start recording your goals, you need to have atleast one goal style and one competition added *images also required*
+
+## Testing
+- To run tests, go to the root folder of the application. Run
+```
+rspec --format documentation
+```
+-
 
 ## Screenshots
 - User Profile
