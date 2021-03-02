@@ -50,7 +50,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 
 ### Prerequisites
 - Ruby : you need ruby installed on your local pc
-- Rails : You need ```rials``` gem installed [guide](https://guides.rubyonrails.org/v5.0/getting_started.html)
+- Rails : You need ```rails``` gem installed [guide](https://guides.rubyonrails.org/v5.0/getting_started.html)
 - Postgresql
 ### Setup
 
