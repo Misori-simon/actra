@@ -44,7 +44,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 [Video presentation](https://www.loom.com/share/c847e570b8904f93bb13a35f705b8eab)
 
 ### Live DEMO
-[Vist](https://actra.herokuapp.com/)
+Click [here](https://actra.herokuapp.com/) for the live demo
 
 ## Getting Started
 
