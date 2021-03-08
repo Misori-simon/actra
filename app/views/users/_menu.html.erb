@@ -5,17 +5,19 @@
   <div class="profile-details">
     <p class="profile-name"> <%= @user.name %> </p>
     <p class="profile-goals">Goals Scored: <b class="profile-goals-number"><%= @total_goals%></b></p>
-    <%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile" %>
   </div>
 </div>
-<div class="goal-menu flex-between">
-  <p class="goal-menu-items ">
-    <%= link_to "All", @user, class: "btn-sec" %>
+<div class="profile-menu row">
+  <p class="profile-menu-items ">
+    <a href="<%= edit_user_path(@user) %>"><i class="fas fa-cog"></i>&nbsp;&nbsp;&nbsp;Profile Settings</a>
   </p>
-  <p class="goal-menu-items">
-    <%= link_to "By Style", users_my_groups_path, class: "btn-sec" %>
+  <p class="profile-menu-items ">
+    <a href="<%= goals_path%>"><i class="far fa-futbol"></i></i>&nbsp;&nbsp;&nbsp;Goals</a>
   </p>
-  <p class="goal-menu-items">
-    <%= link_to "By Competition", users_my_competitions_path, class: "btn-sec" %>
+  <p class="profile-menu-items">
+    <a href="<%= groups_path %>"><i class="fas fa-border-style"></i>&nbsp;&nbsp;&nbsp;Goal Styles</a>
+  </p>
+  <p class="profile-menu-items">
+    <a href="<%= competitions_path %>"><i class="fas fa-trophy"></i>&nbsp;&nbsp;&nbsp;Competitions</a>
   </p>
 </div>

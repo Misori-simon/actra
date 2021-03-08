@@ -13,7 +13,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 
 ## Screenshots
 - User Profile
-![screenshot](app/assets/images/user_profile.png)
+![screenshot](app/assets/images/profile.png)
 
 - User Goals
 ![screenshot](app/assets/images/goals.png)
@@ -22,7 +22,7 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 ![screenshot](app/assets/images/new_goal.png)
 
 - New goal style
-![screenshot](app/assets/images/new_group.png.png)
+![screenshot](app/assets/images/new_group.png)
 
 - New competiton
 ![screenshot](app/assets/images/new_competition.png)

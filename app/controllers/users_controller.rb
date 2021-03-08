@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.save
-      redirect_to @user, notice: 'Thank you for signing up!'
+      redirect_to @user, notice: 'Profile Updated!'
     else
       render :edit
     end
