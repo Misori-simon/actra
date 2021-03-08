@@ -1,5 +1,4 @@
 <div id="groups">
-  <% @groups.each do |group| %>
   <a href="<%= group_path(group) %>" class="goal-items">
     <% image = group.image.attached? ? url_for(group.image): 'https://via.placeholder.com/60'%>
     <div class="thumbnail_image" style="background-image:url(&quot;<%= image %>&quot;) ">
@@ -11,5 +10,4 @@
       </p>
     </div>
   </a>
-<% end %>
 </div>

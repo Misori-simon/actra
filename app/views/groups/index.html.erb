@@ -1,4 +1,4 @@
 <h1 class="form-title">Goals Grouped By Style</h1>
 <%= render "goals/menu" %>
 <%= no_group_message %>
-<%= render "groups" %>
+<%= render partial: "group", collection: @groups %>

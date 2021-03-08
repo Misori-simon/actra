@@ -1,5 +1,3 @@
 <%= render "menu" %>
 <h1 class="form-title"> Goals By Competition </h2>
-<%= render "competitions/competitions" %>
-
-
+<%= render partial: "competitions/competition", collection: @competitions %>
