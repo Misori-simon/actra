@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def no_group_message
-    'No groups yet, add a group' if @groups.empty?
+    'No goal styles yet, add a group' if @groups.empty?
   end
 
   def no_goal_message
