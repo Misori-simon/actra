@@ -1,5 +1,5 @@
 <h1 class="form-title">Login To Continue</h1>
-<%= form_with url: session_path do |f| %>
+<%= form_with id: 'session', url: session_path do |f| %>
   <div class="field">
     <%= f.text_field :name, placeholder: :name %>
   </div>
