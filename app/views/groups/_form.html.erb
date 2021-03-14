@@ -1,6 +1,6 @@
 
 <%= form_with model: @group do |f| %>
- <% display_form_errors(@group) %>
+ <%= display_form_errors(@group) %>
 
   <div class="field">
     <%= f.text_field :name, placeholder: :name, required: true %>

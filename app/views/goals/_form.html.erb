@@ -1,5 +1,5 @@
 <%= form_with model: @goal do |f| %>
-  <% display_form_errors(@goal) %>
+  <%= display_form_errors(@goal) %>
 
   <div class="field">
     <%= f.text_field :name, placeholder: "Opponent" %>

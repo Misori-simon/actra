@@ -1,5 +1,5 @@
 <%= form_with(model: @user, local: true) do |f| %>
-  <% display_form_errors(@user) %>
+  <%= display_form_errors(@user) %>
   <div class="field">
     <%= f.text_field :name, placeholder: :name, required: true %>
   </div>

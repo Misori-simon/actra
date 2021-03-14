@@ -1,6 +1,6 @@
 
 <%= form_with model: @competition do |f| %>
-  <% display_form_errors(@competition) %>
+  <%= display_form_errors(@competition) %>
 
   <div class="field">
     <%= f.text_field :name, placeholder: :name %>

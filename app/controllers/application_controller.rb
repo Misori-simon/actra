@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
 
     errors = "<div id='error_explanation'>"
     errors += '<h2>'
-    errors += pluralize(obj.errors.count, 'error')
-    errors += 'prohibited this user from signing up:</h2>'
+    errors += view_context.pluralize(obj.errors.count, 'error')
+    errors += ' prohibited this user from signing up:</h2>'
     errors += '<ul>'
 
     obj.errors.full_messages.each do |message|
@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
     end
     errors += '</ul>'
     errors += '</div>'
+    errors.html_safe
   end
 
   def display_login_navigation
@@ -75,7 +76,7 @@ class ApplicationController < ActionController::Base
     output += notice
     output += '</p>'
     output += '</div>'
-    output
+    output.html_safe
   end
 
   def display_errors
@@ -86,6 +87,6 @@ class ApplicationController < ActionController::Base
     output += alert
     output += '</p>'
     output += '</div>'
-    output
+    output.html_safe
   end
 end
