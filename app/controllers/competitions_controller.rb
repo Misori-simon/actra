@@ -2,7 +2,7 @@ class CompetitionsController < ApplicationController
   before_action :require_login
   before_action :set_competition, only: %i[show edit update]
   def index
-    @competitions = current_user.competitions
+    @competitions = current_user.competitions.competitions_goals_count.includes(image_attachment: :blob)
   end
 
   def new
@@ -19,7 +19,7 @@ class CompetitionsController < ApplicationController
   end
 
   def show
-    @goals = @competition.goals
+    @goals = @competition.goals.latest
     @total_goals = @competition.goals.sum_goals
   end
 

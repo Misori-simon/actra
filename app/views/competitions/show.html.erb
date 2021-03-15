@@ -7,8 +7,8 @@
     <p class="group-goals">
       <%= pluralize(@total_goals, "goal")%>
     </p>
-    <%= link_to "Edit", edit_group_path(@competition), class: "edit-group" %>
+    <%= link_to "Edit", edit_competition_path(@competition), class: "edit-group" %>
   </div>
 </div>
 <h1 class="form-title"> Goals </p>
-<%= render "goals/goals" %>
+<%= render partial: "goals/goal", collection: @goals %>

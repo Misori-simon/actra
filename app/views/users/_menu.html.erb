@@ -5,9 +5,19 @@
   <div class="profile-details">
     <p class="profile-name"> <%= @user.name %> </p>
     <p class="profile-goals">Goals Scored: <b class="profile-goals-number"><%= @total_goals%></b></p>
-    <%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile" %>
   </div>
 </div>
-<div class="goal-menu flex-center">
-<h1 class="btn-sec"> Goal Stats</h1>
+<div class="profile-menu row">
+  <p class="profile-menu-items ">
+    <a href="<%= edit_user_path(@user) %>"><i class="fas fa-cog"></i>&nbsp;&nbsp;&nbsp;Profile Settings</a>
+  </p>
+  <p class="profile-menu-items ">
+    <a href="<%= goals_path%>"><i class="far fa-futbol"></i></i>&nbsp;&nbsp;&nbsp;Goals</a>
+  </p>
+  <p class="profile-menu-items">
+    <a href="<%= groups_path %>"><i class="fas fa-border-style"></i>&nbsp;&nbsp;&nbsp;Goal Styles</a>
+  </p>
+  <p class="profile-menu-items">
+    <a href="<%= competitions_path %>"><i class="fas fa-trophy"></i>&nbsp;&nbsp;&nbsp;Competitions</a>
+  </p>
 </div>

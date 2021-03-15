@@ -11,6 +11,28 @@
 The objective of this project is build a rails application making use of __groupings__ and to host it on Heroku.
 The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 
+## Screenshots
+- User Profile
+![screenshot](app/assets/images/profile.png)
+
+- User Goals
+![screenshot](app/assets/images/goals.png)
+
+- New goal
+![screenshot](app/assets/images/new_goal.png)
+
+- New goal style
+![screenshot](app/assets/images/new_group.png)
+
+- New competiton
+![screenshot](app/assets/images/new_competition.png)
+
+- Login
+![screenshot](app/assets/images/login.png)
+
+- Sign up
+![screenshot](app/assets/images/signup.png)
+
 ## Built With
 
 - Ruby
@@ -19,16 +41,16 @@ The entire project was built with ```ruby-on-rails```, ```erb```, and ```sass```
 - SASS
 
 ## Video Presentation
-[Video presentation](https://www.loom.com/share/f8d17086752c4fa996a5a480afa0b698)
+[Video presentation](https://www.loom.com/share/c847e570b8904f93bb13a35f705b8eab)
 
 ### Live DEMO
-[Vist](https://actra.herokuapp.com/)
+Click [here](https://actra.herokuapp.com/) for the live demo
 
 ## Getting Started
 
 ### Prerequisites
 - Ruby : you need ruby installed on your local pc
-- Rails : You need ```rials``` gem installed [guide](https://guides.rubyonrails.org/v5.0/getting_started.html)
+- Rails : You need ```rails``` gem installed [guide](https://guides.rubyonrails.org/v5.0/getting_started.html)
 - Postgresql
 ### Setup
 
@@ -43,40 +65,34 @@ cd actra
 ```
 bundle install
 ```
+
+```
+yarn install
+```
+- create a database
+```
+rails db:create
+```
+- Run all migrations
+```
+rails db:migrate
+```
 - To start the server
 
 ```
 rails server
 ```
-
-```
-rails db:migrate
-```
 - In your browser, visit ```localhost:3000```
 - You can create an account with the signup *profile image is required*
-- To start recording your goals, you need to have atleast one goal style and one competion added *images also required*
+- To start recording your goals, you need to have atleast one goal style and one competition added *images also required*
 
-## Screenshots
-- User Profile
-![screenshot](app/assets/images/user_profile.png)
+## Testing
+- To run tests, go to the root folder of the application. Run
+```
+rspec --format documentation
+```
+-
 
-- User Goals
-![screenshot](app/assets/images/goals.png)
-
-- New goal
-![screenshot](app/assets/images/new_goal.png)
-
-- New goal style
-![screenshot](app/assets/images/new_group.png.png)
-
-- New competiton
-![screenshot](app/assets/images/new_competition.png)
-
-- Login
-![screenshot](app/assets/images/login.png)
-
-- Sign up
-![screenshot](app/assets/images/signup.png)
 
 ## Authors
 

@@ -20,8 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @groups = current_user.groups
-    @competitions = current_user.competitions
+    @goals = current_user.goals.latest
     @total_goals = current_user.goals.sum_goals
   end
 
@@ -32,10 +31,22 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.save
-      redirect_to @user, notice: 'Thank you for signing up!'
+      redirect_to @user, notice: 'Profile Updated!'
     else
       render :edit
     end
+  end
+
+  def my_competitions
+    @user = current_user
+    @competitions = current_user.competitions.competitions_goals_count.includes(image_attachment: :blob)
+    @total_goals = current_user.goals.sum_goals
+  end
+
+  def my_groups
+    @user = current_user
+    @groups = current_user.groups.groups_goals_count.includes(image_attachment: :blob)
+    @total_goals = current_user.goals.sum_goals
   end
 
   private

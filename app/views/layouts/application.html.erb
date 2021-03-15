@@ -13,16 +13,8 @@
 
   <body>
     <%= render "layouts/header" %>
-    <% if notice.present? %>
-      <div class="notice">
-        <p> <%= notice %> </p>
-      </div>
-    <% end %>
-    <% if alert.present? %>
-      <div class="alert">
-        <p> <%= alert %> </p>
-      </div>
-    <% end %>
+    <%= display_notice %>
+    <%= display_errors %>
     <main class="main-wrapper">
       <%= yield %>
     </main>

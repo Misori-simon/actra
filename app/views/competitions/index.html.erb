@@ -1,4 +1,4 @@
 <h1 class="form-title">Grouped By Competitions</h1>
 <%= render "goals/menu" %>
-<%= 'No competitions yet, add a new competition' if @competitions.empty?%>
-<%= render "competitions" %>
+<%= no_competiton_message %>
+<%= render partial: "competition", collection: @competitions %>

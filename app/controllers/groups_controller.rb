@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :require_login
   before_action :set_group, only: %i[show edit update]
   def index
-    @groups = current_user.groups
+    @groups = current_user.groups.groups_goals_count.includes(image_attachment: :blob)
   end
 
   def new
@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @goals = @group.goals
+    @goals = @group.goals.latest
     @total_goals = @group.goals.sum_goals
   end
 

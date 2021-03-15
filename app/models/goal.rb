@@ -9,6 +9,7 @@ class Goal < ApplicationRecord
   has_many :competitions, through: :goalings
 
   scope :sum_goals, -> { sum(:amount) }
+  scope :latest, -> { order('created_at DESC') }
 
   def parent_group
     group_id = Scoring.where(goal_id: id).first[:group_id]
